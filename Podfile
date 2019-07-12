@@ -1,0 +1,20 @@
+platform :ios, '9.0'
+target 'Something' do
+    pod 'YYKit', '~> 1.0.9'
+
+    pod 'UMCCommon'
+    pod 'UMCAnalytics'
+    pod 'UMCPush'
+    pod 'UMCErrorCatch'
+    pod 'UMCShare/Social/ReducedWeChat'
+    pod 'UMCShare/Social/ReducedQQ'
+    pod 'UMCShare/Social/QQ'
+    pod 'UMCShare/Social/ReducedSina'
+    pod 'UMCCommonLog'
+    pod 'MJExtension', '~> 3.0.13'
+    pod 'IQKeyboardManager', '~> 6.1.1'
+    pod 'SDWebImage', '~> 5.0.0-beta3'
+    pod 'FMDB', '~> 2.7.2'
+    pod 'AMap3DMap'
+    pod 'AlipaySDK-iOS'
+end

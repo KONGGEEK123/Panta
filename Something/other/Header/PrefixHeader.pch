@@ -1,0 +1,72 @@
+//
+//  PrefixHeader.pch
+//  KrvisionHelper
+//
+//  Created by 视氪  on 2018/4/2.
+//  Copyright © 2018年 shike. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+// 输入
+#define LOGI(__CLASS__,__STRING__) NSLog(@"%@", [NSString stringWithFormat:@"%@:%@",NSStringFromClass([__CLASS__ class]),__STRING__]);
+// 输出日志
+#ifndef DEBUG
+#define NSLog(...)
+#else
+#define NSLog(...) NSLog(__VA_ARGS__)
+#endif
+// 是否是iPhone X的判断
+#define KiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+// 监听通知
+#define OBSERVER_NOTIFICATION(_SELECTORNAME_,_NAME_)             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_SELECTORNAME_:) name:_NAME_ object:nil];
+// 发送通知
+#define POST_NOTIFICATION(_NAME_,_OBJECT_)  [[NSNotificationCenter defaultCenter] postNotificationName:_NAME_ object:_OBJECT_];
+#define ALERT_VIEW(__MESSAGE__) [KJCommonUI showAlertViewWithTitle:__MESSAGE__ message:nil cancelButtonTitle:@"知道了" sureButtonTitle:nil inViewController:MainWindow.rootViewController cancelBlock:nil sureBlock:nil];
+// 创建类的对象
+#define CREATER(_class_)                    [[[_class_ class] alloc] init]
+// TOAST 提示
+//#define HUD(__MESSAGE__) [[HUDManager sharedManager] hud:__MESSAGE__];
+#define SPEAK(_TEXT_,PRIORITY)              [[VoiceManager shareManager] speak:_TEXT_ priority:PRIORITY];
+#define HUD(__MESSAGE__) SPEAK(__MESSAGE__,0);
+#define COLOR_333333                    @"333333"
+// 常用字符串设置
+#define ACCESS_TOKEN                    @"access_token"
+// 常用字符串设置
+#define ACCESS_TOKEN_ORGIN              @"access_token_original_new_6.0.0"
+// 常用字符串设置
+#define LOGIN_PHONE_NUMBER              @"LOGIN_PHONE_NUMBER"
+// 云信
+#define NETEASE_ACCOUNT                 @"netease_account"
+// 云信
+#define NETEASE_TOKEN                   @"netease_token"
+// 常用字符串设置
+#define DEVICE_TOKEN                    @"DEVICE_TOKEN"
+// 常用字符串设置
+#define PAY_FINISH_NOTIFICATION         @"PAY_FINISH_NOTIFICATION"
+// 常用头文件导入
+#import "KJSDKHeader.h"
+// 导入常用头文件
+#import "InterfaceHeader.h"
+// 导入常用头文件
+#import <YYKit.h>
+// 导入常用头文件
+#import "RequestEngine.h"
+// 导入常用头文件
+#import <MJExtension.h>
+// 导入常用头文件
+#import <SDWebImage.h>
+// 导入常用头文件
+#import "MJRefresh.h"
+// 导入常用头文件
+#import "UMShareEngine.h"
+// 导入常用头文件
+#import "UIView+KJClick.h"
+// 导入常用头文件
+#import "VoiceManager.h"
+#endif
+
+
+#endif /* PrefixHeader_pch */
